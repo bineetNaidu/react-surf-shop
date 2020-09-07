@@ -4,3 +4,26 @@
 .shop__container {
   padding-top: 1.5rem;
 }
+.shop__detail__imgs {
+  display: "flex";
+  flex-wrap: "wrap";
+  justify-content: "space-around";
+  overflow: "hidden";
+}
+.shop__detail__imgs__gridlist {
+  flex-wrap: "wrap";
+  /* Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS. */
+  transform: "translateZ(0)";
+}
+.shop__detail__title {
+  padding: 1.2rem 0;
+  text-decoration: underline;
+  font-size: xx-large;
+  text-transform: uppercase;
+}
+.shop__detail__desc {
+  padding: 1.2rem 0;
+}
+.shop__detail__desc h3 {
+  margin: 0 0 1rem 0;
+}
