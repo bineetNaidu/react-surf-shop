@@ -2,7 +2,7 @@
   height: 100vh;
 }
 .shop__container {
-  padding-top: 1.5rem;
+  padding: 1.5rem 0;
 }
 .shop__detail__imgs {
   display: "flex";

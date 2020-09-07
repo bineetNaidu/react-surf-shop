@@ -3,6 +3,7 @@ import Container from "@material-ui/core/Container";
 import "./Shop.css";
 import Map from "./Map";
 import { GridList, GridListTile } from "@material-ui/core";
+import ShopItems from "./ShopItems";
 
 const tileData = [
   {
@@ -28,9 +29,32 @@ class Shop extends Component {
     shopName: "Surf Shop",
     shopDesc:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobissed alias ex similique! Cumque praesentium ipsam excepturi evenietasperiores! Eveniet sunt accusantium nostrum facilis? Doloribusqui a corrupti tenetur eum quod voluptatem nam fuga nihil.",
+    shopItemsList: [
+      {
+        price: "$ 4.50",
+        ItemName: "Surf ",
+        ItemDesc:
+          "Pinstriped cornflower blue cotton blouse takes on a walk to the park or just down the hall.",
+        ItemSizes: ["Small", "Medium"],
+      },
+      {
+        price: "$ 4.50",
+        ItemName: "Surf Boat",
+        ItemDesc:
+          "Pinstriped cornflower blue cotton blouse takes on a walk to the park or just down the hall.",
+        ItemSizes: ["Small"],
+      },
+      {
+        price: "$ 4.50",
+        ItemName: "Surf shots",
+        ItemDesc:
+          "Pinstriped cornflower blue cotton blouse takes on a walk to the park or just down the hall.",
+        ItemSizes: ["Small", "Large"],
+      },
+    ],
   };
   render() {
-    const { shopImgs, shopName, shopDesc } = this.props;
+    const { shopImgs, shopName, shopDesc, shopItemsList } = this.props;
     return (
       <div className="shop">
         <Container maxWidth="lg" className="shop__container">
@@ -52,7 +76,7 @@ class Shop extends Component {
             </div>
             <div className="shop__detail__storeItems">
               <h3>{shopName}'s Shop Items</h3>
-              {/* ShopItems */}
+              <ShopItems shopItemList={shopItemsList} />
             </div>
           </div>
         </Container>
