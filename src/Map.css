@@ -1,0 +1,16 @@
+.mapContainer {
+  position: relative;
+}
+.mapContainer canvas {
+  outline: none;
+}
+.mapContainer .mapboxgl-control-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.5px 5px;
+}
+.mapContainer .mapboxgl-control-container a {
+  color: rgba(0, 0, 0, 0.8);
+}
