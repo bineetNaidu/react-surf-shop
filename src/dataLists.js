@@ -44,6 +44,10 @@ export default [
         ItemSizes: ["Small", "Large"],
       },
     ],
+    location: {
+      lng: 5,
+      lat: 64,
+    },
   },
 
   {
@@ -91,6 +95,10 @@ export default [
         ItemSizes: ["medium", "Large"],
       },
     ],
+    location: {
+      lng: 85,
+      lat: 34,
+    },
   },
 
   {
@@ -138,5 +146,9 @@ export default [
         ItemSizes: ["Small", "Large"],
       },
     ],
+    location: {
+      lng: 15,
+      lat: 54,
+    },
   },
 ];

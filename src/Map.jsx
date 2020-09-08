@@ -6,18 +6,12 @@ import { MAPBOX_TOKEN } from "./config";
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
 export class Map extends Component {
-  static defaultProps = {
-    lng: 5,
-    lat: 34,
-    zoom: 8,
-  };
-
   componentDidMount() {
     new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [this.props.lng, this.props.lat],
-      zoom: this.props.zoom,
+      zoom: this.props.zoom || 8,
     });
   }
   render() {
