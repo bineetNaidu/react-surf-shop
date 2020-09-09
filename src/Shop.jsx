@@ -17,7 +17,7 @@ class Shop extends Component {
     return (
       <div className="shop">
         <Container maxWidth="lg" className="shop__container">
-          <Map lat={location.lat} lng={location.lng} />
+          <Map lat={location.coordinates[1]} lng={location.coordinates[0]} />
           <div className="shop__detail">
             <h3 className="shop__detail__title">{shopName}</h3>
             <div className="shop__detail__imgs">

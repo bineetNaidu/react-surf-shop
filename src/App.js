@@ -2,18 +2,26 @@ import React, { Component } from "react";
 import Shop from "./Shop";
 import { Route, Switch } from "react-router-dom";
 import ShopList from "./ShopList";
-import data from "./dataLists";
+import getApiData from "./helpers";
 
 class App extends Component {
-  static defaultProps = {
-    shops: [...data],
-  };
   constructor(props) {
     super(props);
+    this.state = {
+      shops: [],
+    };
     this.findShop = this.findShop.bind(this);
   }
+  async componentDidMount() {
+    const shopsData = await getApiData();
+    if (shopsData.status === 200) {
+      this.setState({
+        shops: [...shopsData.shops],
+      });
+    }
+  }
   findShop(uuid) {
-    return this.props.shops.find((shop) => shop.uuid === uuid);
+    return this.state.shops.find((shop) => shop.uuid === uuid);
   }
   render() {
     return (
@@ -23,7 +31,7 @@ class App extends Component {
           <Route
             exact
             path="/shops"
-            render={() => <ShopList shopLists={this.props.shops} />}
+            render={() => <ShopList shopLists={this.state.shops} />}
           />
           <Route
             exact
