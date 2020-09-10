@@ -11,7 +11,9 @@ const Paginations = ({ shopsPerPage, totalPosts, paginate }) => {
   return (
     <nav className="paginations">
       {pageNumbers.map((number) => (
-        <span onClick={() => paginate(number)}>{number}</span>
+        <span key={number} onClick={() => paginate(number)}>
+          {number}
+        </span>
       ))}
     </nav>
   );

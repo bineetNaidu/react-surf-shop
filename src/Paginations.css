@@ -1,9 +1,10 @@
 .paginations span {
-  margin: 0 8px;
+  margin: 0 5px;
   background: rgba(137, 137, 209, 0.5);
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
   font-size: larger;
+  border-radius: 50%;
 }
 .paginations {
   margin: 2rem auto;
