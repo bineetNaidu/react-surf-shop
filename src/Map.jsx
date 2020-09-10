@@ -14,6 +14,20 @@ export class Map extends Component {
       zoom: this.props.zoom || 8,
     });
   }
+  // componentDidUpdate() {
+  //   let map = new mapboxgl.Map({
+  //     container: this.mapContainer,
+  //     style: "mapbox://styles/mapbox/light-v10",
+  //     center: [this.props.lng || 0, this.props.lat || 0],
+  //     zoom: this.props.zoom || 8,
+  //   });
+  //   if (this.props.markers) {
+  //     // console.log(this.props.markers);
+  //     for (let marker of this.props.markers) {
+  //       new mapboxgl.Marker().setLngLat([marker[0], marker[1]]).addTo(map);
+  //     }
+  //   }
+  // }
   render() {
     return (
       <div>

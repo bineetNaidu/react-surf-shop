@@ -3,6 +3,8 @@ import Shop from "./Shop";
 import { Route, Switch } from "react-router-dom";
 import ShopList from "./ShopList";
 import getApiData from "./helpers";
+import { Home } from "./Home";
+import Navbar from "./Navbar";
 
 class App extends Component {
   constructor(props) {
@@ -39,9 +41,14 @@ class App extends Component {
     const currShops = shops.slice(indexOfFirstPost, indexOfLastPost);
 
     return (
-      <div className="App">
+      <div className="App" style={{ height: "100vh" }}>
+        <Navbar />
         <Switch>
-          <Route exact path="/" render={() => <h1>Home</h1>} />
+          <Route
+            exact
+            path="/"
+            render={() => <Home shops={[...this.state.shops]} />}
+          />
           <Route
             exact
             path="/shops"
