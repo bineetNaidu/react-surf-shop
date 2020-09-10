@@ -9,8 +9,11 @@ class App extends Component {
     super(props);
     this.state = {
       shops: [],
+      currPage: 1,
+      shopsPerPage: 10,
     };
     this.findShop = this.findShop.bind(this);
+    this.paginate = this.paginate.bind(this);
   }
   async componentDidMount() {
     const shopsData = await getApiData();
@@ -23,7 +26,18 @@ class App extends Component {
   findShop(uuid) {
     return this.state.shops.find((shop) => shop.uuid === uuid);
   }
+  // Change page
+  paginate(pageNumber) {
+    this.setState({ currPage: pageNumber });
+  }
+
   render() {
+    const { shops, currPage, shopsPerPage } = this.state;
+    // Get current posts
+    const indexOfLastPost = currPage * shopsPerPage;
+    const indexOfFirstPost = indexOfLastPost - shopsPerPage;
+    const currShops = shops.slice(indexOfFirstPost, indexOfLastPost);
+
     return (
       <div className="App">
         <Switch>
@@ -31,13 +45,23 @@ class App extends Component {
           <Route
             exact
             path="/shops"
-            render={() => <ShopList shopLists={this.state.shops} />}
+            render={() => (
+              <ShopList
+                shopLists={currShops}
+                shopsPerPage={shopsPerPage}
+                totalPosts={shops.length}
+                paginate={this.paginate}
+              />
+            )}
           />
           <Route
             exact
             path="/shops/:uuid"
             render={(routerProps) => (
-              <Shop shop={this.findShop(routerProps.match.params.uuid)} />
+              <Shop
+                shop={this.findShop(routerProps.match.params.uuid)}
+                {...routerProps}
+              />
             )}
           />
           {/* <Route exact path="*" component={<h2>404 NOT FOUND</h2>} /> */}

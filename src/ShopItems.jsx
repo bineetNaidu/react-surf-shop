@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-evenly",
+    flexWrap: "wrap",
   },
   main: {
     margin: "0.5rem auto",
